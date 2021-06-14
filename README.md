@@ -1,21 +1,24 @@
 # {Application Name}
-#### {Brief description of application}, {Date of current version}
-#### By **{List of contributors}**
+#### AKAN NAMING WEBSITE
+#### By **{Ajanga Ancel}**
 ## Description
-{This is a detailed description of your application, including its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }
+{This is a web application that takes your birth day, month and year and runs it through codes to give you a ghanaian Akan names. }
 ## Setup/Installation Requirements
-* This is a great place
-* to list setup instructions
-* in a simple
-* easy-to-understand
-* format
-{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? Do I need to install any dependencies? How should I set up my databases? Is there other code this app depends on?}
+* Open the web application.
+* Read the instructions carefully.
+* Fill in the forms truthfully.
+* Click the generate name button.
+
 ## Known Bugs
-{Are there issues that have not yet been resolved that you want to let users know you know? Outline any issues that would impact use of your application. Share any workarounds that are in place. }
+There might be a few bugs considering this is the first time using JS.
 ## Technologies Used
-{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}
+TEchnologies used are:
+CSS
+HTML
+JAVASCRIPT
+BOOTSTRAP
 ## Support and contact details
-{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}
+Get to contact me on duncanlewis545@gmail.com
 ### License
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*REad the licence form for licensing.
 Copyright (c) {year} **{List of contributors or company name}**

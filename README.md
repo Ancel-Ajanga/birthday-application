@@ -21,4 +21,4 @@ BOOTSTRAP
 Get to contact me on duncanlewis545@gmail.com
 ### License
 *REad the licence form for licensing.
-Copyright (c) {year} **{List of contributors or company name}**
+Copyright (c) {2021} **{Ajanga Ancel}**

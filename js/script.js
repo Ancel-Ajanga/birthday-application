@@ -1,77 +1,102 @@
-function submition() {
-    /* declaration  and initialisation */
-    var day = document.getElementById("day").value;
-    var dd = parseInt(day);
-    var month = document.getElementById("month").value;
-    var mm = parseInt(month);
-    var year = document.getElementById("year").value;
-    var yy = parseInt(year.toString().slice(2, 4));
-    //  var cc=(yy-1)/100+1;
-    var cc = Math.ceil(year / 100)
-    /* the formula */
-    var result = parseInt(((cc / 4) - 2 * cc - 1) + ((5 * yy / 4)) + ((26 * (mm + 1) / 10)) + dd) % 7;
-  
-    var maleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
-    var femaleNames = ["Akosua", " Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
-    if (document.getElementById("gender").checked) {
-      var gender = 'male';
+function getAkanName() {
+    let varYear = document.getElementById("varYear").value;
+    let varMonth = Number(document.getElementById("varMonth").value);
+    let varDate = Number(document.getElementById("varDate").value);
+    let genders = document.getElementsByName("gender");
+    // function to get gender
+    function getGender() {
+        for (let gender of genders) {
+            if (gender.checked) {
+                return gender.value;
+            }
+        }
     }
-    else {
-      var gender = 'female';
+    let varGender = getGender();
+    console.log(varGender);
+    // validation function for the month to make sure user enters a month between 1 and 12. Input type nummber in html ignores min and max length properties
+    function valMonth() {
+        if (varMonth < 1 || varMonth > 12) {
+            return false;
+        } else {
+            return true;
+        }
     }
-    if (dd <= 0 || dd > 31) {
-      alert("invalid date");
+    //validation function for days of the month.
+    function valDay() {
+        //leap year
+        if (varMonth === 2 && Number(varYear % 4 === 0)) {
+            if (varDate >= 1 && varDate <= 29) {
+                return true;
+            } else {
+                return false
+            }
+        }
+        //non leap year
+        else if (varMonth === 2 && Number(varYear % 4 != 0)) {
+            if (varDate >= 1 && varDate <= 28) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        //30 days
+        else if (varMonth === 4 || varMonth === 6 || varMonth === 9 || varMonth === 11) {
+            if (varDate >= 1 && varDate <= 30) {
+                return true
+            } else {
+                return false;
+            }
+        }
+        //validation of the 31 days
+        else if (varMonth === 1 || varMonth === 3 || varMonth === 5 || varMonth === 7 || varMonth === 8 || varMonth === 10 || varMonth === 12) {
+            if (varDate >= 1 && varDate <= 31) {
+                return true
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
-    else if (mm <= 0 || mm > 12) {
-      alert("invalid month");
+    //validation variables
+    let monthValid = valMonth();
+    let dayValid = valDay();
+    //Formula to determine day of birth given all input variables
+    let dayNumber = Math.floor((((Number(varYear.slice(0, 2)) / 4) - 2 * Number(varYear.slice(0, 2)) - 1) +
+        ((5 * Number(varYear.slice(2, 4)) / 4)) + ((26 * (varMonth + 1) / 10)) + varDate) % 7);
+    //arrays for days of the week
+    let weekDays = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ];
+    //arrays for akan names for the males
+    let akanMale = [
+        "Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"
+    ];
+    //arrays for akan names for the females
+    let akanFemale = [
+        "Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"
+    ];
+    //selecting items on the arrays
+    var DOB = new Date(varYear + "/" + varMonth + "/" + varDate);
+    var exactDay = DOB.getDay();
+    let index;
+    if (exactDay == 0) {
+        index = 0;
+    } else {
+        index = exactDay;
     }
-    else if (mm == 2 && dd > 29) {
-      alert("invalid day of month")
+    console.log(index);
+    if (varGender == "male" && monthValid && dayValid) {
+        document.getElementById('result').textContent = "Born on a " + weekDays[index] + " , Your Akan name is " + akanMale[index];
+        document.getElementById('result').style.fontSize = "25px";
+        document.getElementById('result').style.fontFamily = "Segoe UI";
+        return false;
+    } else if (varGender == "female" && monthValid && dayValid) {
+        document.getElementById('result').textContent = "Born on a " + weekDays[index] + " , Your Akan name is " + akanFemale[index];
+        document.getElementById('result').style.fontSize = "25px";
+        document.getElementById('result').style.fontFamily = "Segoe UI";
+        return false;
+    } else {
+        alert("Date error. Make sure you entered a\r valid number of days for that month");
     }
-    else if (Math.round(result) == 0 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Sunday, your Akan Name is " + maleNames[0]);
-    }
-    else if (Math.round(result) == 1 || Math.round(result) == -1 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Monday, your Akan Name is " + maleNames[1]);
-    }
-    else if (Math.round(result) == 2 || Math.round(result) == -2 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Tuesday, your Akan Name is " + maleNames[2]);
-    }
-    else if (Math.round(result) == 3 || Math.round(result) == -3 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Wednesday, your Akan Name is " + maleNames[3]);
-    }
-    else if (Math.round(result) == 4 || Math.round(result) == -4 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Thursday, your Akan Name is " + maleNames[4]);
-    }
-    else if (Math.round(result) == 5 || Math.round(result) == -5 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Friday, your Akan Name is " + maleNames[5]);
-    }
-    else if (Math.round(result) == 6 || Math.round(result) == -6 && gender === 'male') {
-      document.getElementById("final").innerHTML = ("You were born on Saturday, your Akan Name is " + maleNames[6]);
-    }
-    else if (Math.round(result) == 0 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Sunday, your Akan name is " + femaleNames[0]);
-    }
-    else if (Math.round(result) == 1 || Math.round(result) == -1 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Monday, your Akan Name is " + femaleNames[1]);
-    }
-    else if (Math.round(result) == 2 || Math.round(result) == -2 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Tuesday, your Akan Name is " + femaleNames[2]);
-    }
-    else if (Math.round(result) == 3 || Math.round(result) == -3 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Wednesday, your Akan Name is " + femaleNames[3]);
-    }
-    else if (Math.round(result) == 4 || Math.round(result) == -4 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Thursday, your Akan Name is " + femaleNames[4]);
-    }
-    else if (Math.round(result) == 5 || Math.round(result) == -5 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Friday, your Akan Name is " + femaleNames[5]);
-    }
-    else if (Math.round(result) == 6 || Math.round(result) == -6 && gender === 'female') {
-      document.getElementById("final").innerHTML = ("You were born on Saturday, your Akan Name is " + femaleNames[6]);
-    }
-    else {
-      alert("please input all data");
-    }
-  
-  }
+}

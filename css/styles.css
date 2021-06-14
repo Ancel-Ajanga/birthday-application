@@ -11,14 +11,14 @@ label{
 .form {
  text-align: center;
 }
-input[type=text]{
+input[type=number]{
 width: 20%;
 padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;
 }
 
-input[type=submit]{
+input[type=naming]{
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -26,8 +26,7 @@ input[type=submit]{
   color: white;
   background-color:blue;
   box-shadow: 10px 10px white #34495E;
-}
-.sbmt{
+.name{
   text-align: center;
 }
 .para{

@@ -8,6 +8,7 @@
   <title>Akan</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -29,38 +30,22 @@
         </div>
       </div>
       <div class="jumbotron col-md-6">
-        <div class="form">
-          <label for="input-Day">Day</label>
-          <input type="number" class="form" id="name" required placeholder="Day"><br>
-          </div>
           <div class="form">
-          <label for="input-Month">Month</label>
-          <input type="number" class="form" id="form" required placeholder="Month"><br>
-          </div>
-          <div class="form">
-          <label for="input-Year">Year</label>
-          <input type="number" id="year" require placeholder="Year"><br>
-          </div>
-          <div class="input">
-          <br><input type="radio" name="gender" class="name" id="input" value="male" checked>Male 
-          </div>
-          <div class="input">
-          <br><input type="radio" name="gender"  class="name" id="input" value="female" checked>Female
+            <form onsubmit="return getAkanName()">
+                <label class="formlabel">Date of Birth</label><br><br>
+                <input id="varMonth" name="userMonth" type="number" class="month" minlength="1" maxlength="2" required placeholder="Month(MM)"><br><br>
+                <input id="varDate" name="userDate" type="number" class="date" minlength="1" maxlength="2" required placeholder="Day(DD)"><br><br>
+                <input id="varYear" name="userYear" type="number" class="year" minlength="4" maxlength="4" required placeholder="Year(YYYY)"><br><br>
+                <label class="formlabel2">Gender</label><br><br>
+                <b style="padding-right: 10px">Male</b>
+                <input id="varMale" type="radio" name="gender" value="male" required>&nbsp;&nbsp;&nbsp;
+                <b style="padding-right: 10px"> Female</b>
+                <input id="varFemale" type="radio" name="gender" value="female" required>
+                </label><br><br>
+                <input id="get-name" class="btn2" type="submit" value="Submit">
+            </form>
+            <p id="result"></p>
         </div>
-        <button type="button" name="button" class="click"
-              onclick="naming();">Get the Akan name.</button>
-    </form>
-    <div class="final">
-        </div>
-
-    </div>
-        <div id="last">
-          <p id="final"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="js/script.js"></script>
 </body>
 
 </html>

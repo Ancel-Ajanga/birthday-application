@@ -11,14 +11,14 @@ label{
 .form {
  text-align: center;
 }
-input[type=text]{
+input[type=number]{
 width: 20%;
 padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;
 }
 
-input[type=submit]{
+input[type=final]{
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;

@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Tangerine&display=swap');
+body{
+  background-repeat:no-repeat;
+  background-size:cover;
+}
 h1{
-  color:aquamarine;
-  font-size:90px;
+  color: black;
+  font-size:70px;
   font-family: 'Abril Fatface', cursive;
   text-align: center;
 }
 p{
   font-size: 25px;
-  color:forestgreen;
-  font-style: normal;
+  color:white;
+  font-style:normal;
 }
 label{
   color: rgb(18, 156, 18)
@@ -37,11 +41,11 @@ input[type=naming]{
 .para{
   font-size: 20px;
   color:white
-  
-} 
+
+}
 img{
-  width:150px;
-  height:150px;
+  width:650px;
+  height:250px;
   border-radius:50%
 }
 #img{
@@ -61,5 +65,4 @@ strong{
   color:rgb(156, 18, 18)
 }
 .container{
-  background-image: url(https://images.unsplash.com/photo-1483420271638-cc2e1e9c441e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)
 }
